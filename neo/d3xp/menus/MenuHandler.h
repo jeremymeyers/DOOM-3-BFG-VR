@@ -148,6 +148,7 @@ enum menuSounds_t
 	NUM_GUI_SOUNDS,
 };
 
+static const int BIND_CONTROL_DEBOUNCE_MS = 50; // Npi add a debounce on event binding, because some move send multiple event unorder, can't only keep the first one
 static const int MAX_SCREEN_AREAS = SHELL_NUM_AREAS; // Carl: This should stop hard to debug crashes
 static const int DEFAULT_REPEAT_TIME = 150;
 static const int WAIT_START_TIME_LONG = 30000;
@@ -452,7 +453,8 @@ public:
 	void					ClearWaitForBinding()
 	{
 		waitForBinding = false;
-	}
+		lastBindingEventTime = Sys_Milliseconds();
+	}	
 	void					UpdateLeaderboard( const idLeaderboardCallback* callback );
 	void					UpdateLobby( idMenuWidget_LobbyList* lobbyList );
 	void					ShowDoomIntro();
@@ -481,6 +483,7 @@ private:
 	bool					largeFrameShowing;
 	bool					bgShowing;
 	bool					waitForBinding;
+	int						lastBindingEventTime = 0;
 	const char* 			waitBind;
 	//idSysSignal				deviceRequestedSignal;
 	
