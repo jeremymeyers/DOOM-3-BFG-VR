@@ -13,16 +13,17 @@ DOOM3-BFG VR : Fully Possessed
 Includes support for the HTC Vive via SteamVR, the Oculus Rift and Touch motion controls via the
 Oculus SDK or SteamVR, and (in theory) Windows Mixed Reality via SteamVR.
 
-VR Implementation: /u/Samson-
-Major Contributions - Teleportation, Voice Commands, Flicksync, Bink videos, Loading other
-                      savegames, code improvements: Carl Kenner
-Holster slots, Crawl Space Head Collision, minor fixes: Leyland
-Doom VFR style teleporting, JetStrafe, Slow Mo and Tunnel vision motion sickness fixes: jckhng
-Spanish Voice Commands: TinoSM
-Windows Mixed Reality and VS2017 support: Mark Sheehan
-Additional VS2017 support: Bao Chi Tran Nguyen
-Linux support and buffer overrun fixes: Christoph Haag
-Originally inspired by: tmek
+## Credits
+
+- /u/Samson: VR Implementation
+- Carl Kenner: Teleportation, Voice Commands, Flicksync, Bink videos, Loading other savegames, code improvements
+- Leyland: Holster slots, Crawl Space Head Collision, minor fixes
+- jckhng: Doom VFR style teleporting, JetStrafe, Slow Mo and Tunnel vision motion sickness fixes
+- TinoSM: Spanish Voice Commands
+- Mark Sheehan: Windows Mixed Reality and VS2017 support
+- Bao Chi Tran Nguyen: Additional VS2017 support
+- Christoph Haag: Linux support and buffer overrun fixes: 
+- Originally inspired by tmek
 
 DOOM-3-BFG-VR Readme - https://github.com/KozGit/DOOM-3-BFG-VR
 
@@ -30,53 +31,38 @@ DOOM-3-BFG-VR was built using an older version of the RBDOOM3-BFG port.
 RBDOOM-3-BFG Readme - https://github.com/RobertBeckebans/RBDOOM-3-BFG
 
 
-_______________________________________
 
-CONTENTS
-_______________________________
+---
+# CONTENTS #
+---
 
 
 
 This file contains the following sections:
 
-	1) SYSTEM REQUIREMENTS
-
-	2) GENERAL NOTES
-	
-	3) INSTALLATION, GETTING THE GAMEDATA, RUNNING THE GAME
-	
-	4) NEW FEATURES
-	
-	5) CHANGES
-	
-	6) CONTROLS
-	
-	7) FLICKSYNC
-	
-	8) VR OPTIONS
-	
-	9) CONSOLE VARIABLES
-	
-	10) KNOWN ISSUES
-	
-	11) GETTING THE SOURCE CODE
-
-	12) COMPILING ON WINDOWS WITH VISUAL C++ 2013, 2015, OR 2017 EXPRESS / COMMUNITY
-
-	13) COMPILING ON LINUX
-	
-	14) BUG REPORTS
-	
-	15) LICENSE
-	
-	16) CODE LICENSE EXCEPTIONS
+1. [SYSTEM REQUIREMENTS](#one)
+2. [GENERAL NOTES](#two)
+3. [INSTALLATION, GETTING THE GAMEDATA, RUNNING THE GAME](#three)
+4. [NEW FEATURES](#four)
+5. [CHANGES](#five)
+6. [CONTROLS](#six)
+7. [FLICKSYNC](#seven)
+8. [VR OPTIONS](#eight)
+9. [CONSOLE VARIABLES](#nine)
+10. [KNOWN ISSUES](#ten)
+11. [GETTING THE SOURCE CODE](#eleven)
+12. [COMPILING ON WINDOWS WITH VISUAL C++ 2013, 2015, OR 2017 EXPRESS / COMMUNITY](#twelve)
+13. [COMPILING ON LINUX](#thirteen)
+14. [BUG REPORTS](#fourteen)
+15. [LICENSE](#fifteen)
+16. [CODE LICENSE EXCEPTIONS](#sixteen)
 
 
 
-___________________________________
 
-1) SYSTEM REQUIREMENTS
-__________________________
+---
+## SYSTEM REQUIREMENTS
+---
 
 
 
@@ -101,10 +87,7 @@ Recommended system requirements:
 	
 
 
-_______________________________
-
-2) GENERAL NOTES
-______________________
+## GENERAL NOTES ##
 
 This release does not contain any game data, the game data is still
 covered by the original EULA and must be obeyed as usual.
@@ -117,57 +100,50 @@ Note that Doom 3 BFG Edition is available from the Steam store at
 http://store.steampowered.com/app/208200/
 
 
-Saved games:
-------------
-The saved game folder is:
-%UserProfile%\Saved Games\id Software\DOOM 3 BFG\Fully Possessed
+### Saved games: ###
+The saved game folder is
 
+	%UserProfile%\Saved Games\id Software\DOOM 3 BFG\Fully Possessed
 Your settings are also saved there as vr_oculus.cfg and vr_openvr.cfg
-You can delte the those setting files to return to default settings.
+
+You can delete the those setting files to return to default settings.
 
 It will also try to load games (with partial success) from:
-%UserProfile%\Saved Games\id Software\DOOM 3 BFG\base
-%UserProfile%\Saved Games\id Software\RBDOOM 3 BFG\base
 
-Games loaded from other versions, other mods, or different texture packs
-will have some glitches until you complete the level (which may not always be
-possible without cheats). You should use the "restartMap" console command after
-loading if you are near the start or you get stuck due to a glitch. It will
-restart the map with your current inventory but without any glitches. You can
-also use the "endLevel" console command to win the level and continue to the
-next level (without any glitches) if you get stuck near the end. But that is
-sort of cheating.
+	%UserProfile%\Saved Games\id Software\DOOM 3 BFG\base
+	%UserProfile%\Saved Games\id Software\RBDOOM 3 BFG\base
+
+Games loaded from other versions, other mods, or different texture packs will have some glitches until you complete the level (which may not always be
+possible without cheats). You should use the "restartMap" console command after loading if you are near the start or you get stuck due to a glitch. It will restart the map with your current inventory but without any glitches. You can also use the "endLevel" console command to win the level and continue to the next level (without any glitches) if you get stuck near the end. But that is sort of cheating.
 
 
-Steam:
-------
+**Steam**
+
 The Doom 3 BFG Edition GPL Source Code release does not include functionality for integrating with 
 Steam.  This includes roaming profiles, achievements, leaderboards, matchmaking, the overlay, or
 any other Steam features.
 
 
-Bink:
------
+**Bink**
+
 The Doom3BFGVR Edition GPL Source Code release includes functionality for rendering Bink Videos through FFmpeg.
 
 
-Back End Rendering of Stencil Shadows:
---------------------------------------
+### Back End Rendering of Stencil Shadows ###
 
 The Doom 3 BFG Edition GPL Source Code release does not include functionality enabling rendering
 of stencil shadows via the "depth fail" method, a functionality commonly known as "Carmack's Reverse".
 
 
-Mods:
------
+### Mods ###
 
 The Doom 3 BFG Edition GPL Source Code release allows mod editing. In order for it to accept any change in your
 mod directory, you should first specify your mod directory adding the following command to the launcher:
 
+	"+set fs_game_base modDirectoryName"
+ 
 The fs_game mod directory is used exclusively by DOOM3-BFG VR : Fully Possessed and should not be used by other
 mods. Additional mods can my use the fs_game_base directory
-
-"+set fs_game_base modDirectoryName"
 
 so it would end up looking like: Doom3BFGVR +set fs_game_base mymod
 
@@ -175,39 +151,28 @@ This will result in the game searching the Fully Possessed directory, followed b
 and finally the BASE directory when loading assets.
 
 Binary mods from Classic Doom 3 (non-BFG) mods are not supported.  
-It is possible however to utilize some of the assets from Classic Doom mods,
-however this is beyond the scope of this document.
+It is possible however to utilize some of the assets from Classic Doom mods, however this is beyond the scope of this document.
 
 
-___________________________________________________
+---
+## INSTALLATION, GETTING THE GAMEDATA, RUNNING THE GAME ##
+---
 
-3) INSTALLATION, GETTING THE GAMEDATA, RUNNING THE GAME
-__________________________________________
-
-1. Make sure you have Doom 3 BFG Edition installed in Steam.
-   Doom 3 BFG Edition is also available from Good Old Games, but I haven't tested that version.
+1. Make sure you have [Doom 3 BFG Edition](https://steamcommunity.com/app/208200) installed in Steam.
+   Doom 3 BFG Edition is also available from [Good Old Games](https://www.gog.com/game/doom_3), but I haven't tested that version.
 
 2. Set the Doom 3 BFG language in Steam to your desired language. 
 
 3. In the unlikely event that you don't have the Visual C++ 2013 redistributable installed, get it here:
 	https://www.microsoft.com/en-au/download/details.aspx?id=40784
 
-4. Old version 0.015 of this mod installed assets directly into the BASE directory of the Doom 3 BFG
-   installation.  All assets are now installed into a separate mod folder named 'Fully Possessed'
-   located in the Doom 3 BFG directory. An installer is now provided that will automatically remove
-   files from old versions of this mod if present, and install the updated mod.  The installer doesn't
-   add any files to the base folder, but it will remove files installed by mods that have the same 
-   names as files used by this mod ( mostly weapons and player models ). This will NOT affect the base
-   game, but could possibly break other mods installed.
+4. Old version 0.015 of this mod installed assets directly into the BASE directory of the Doom 3 BFG installation.  All assets are now installed into a separate mod folder named 'Fully Possessed' located in the Doom 3 BFG directory. An installer is now provided that will automatically remove files from old versions of this mod if present, and install the updated mod.  The installer doesn't add any files to the base folder, but it will remove files installed by mods that have the same names as files used by this mod ( mostly weapons and player models ). This will NOT affect the base game, but could possibly break other mods installed.
 
-   ( Note that at the time of this writing, the stock RBDOOM-3-BFGVR mod by Leyland does not install
-   any assets, and this installation/removal process should not affect it. HOWEVER, if the hi-def 
-   expansion has been installed in addition to the RBDOOM-3_BFGVR Mod, the hi-def expansion will 
-   need to be reinstalled. )
+   (Note that at the time of this writing, the stock RBDOOM-3-BFGVR mod by Leyland does not install any assets, and this installation/removal process should not affect it. HOWEVER, if the hi-def expansion has been installed in addition to the RBDOOM-3_BFGVR Mod, the hi-def expansion will need to be reinstalled. )
 
-   * If any other mods have been installed, or if you are unsure what deleting files may mean, it
+   **If any other mods have been installed, or if you are unsure what deleting files may mean, it
    is STRONGLY recommended to make a backup copy of your Doom3 BFG installation before running the
-   installer. *
+   installer.**
 
 5. Installing the mod:
 
@@ -240,10 +205,10 @@ __________________________________________
 
 10. If you run into bugs, please report them. ( see section 9 )
 
-___________________________________________________
 
-4) NEW FEATURES
-__________________________________________
+---
+## NEW FEATURES ##
+---
 
 New in 0.23 (unreleased):
 	Spanish voice commands (to use, replace dict/voice.dict with dict/voiceSpanish.dict)
@@ -449,31 +414,19 @@ Native support for the Oculus Rift and Touch via the Oculus SDK when detected.
 	expected.
 
 
-___________________________________________________
 
-5) CHANGES
-__________________________________________
+## CHANGES ##
 
 - VR support (Doom 3 only, 1 and 2 use a virtual screen in VR)
-
 - Motion Controls
-
 - Voice Commands
-
 - Flicksync Mode
-
 - Better looking cola cans and video discs
-
 - Mostly uncensored Doom 1 and 2 (still no blue SS soldiers in secret level)
-
 - Fixed Doom 2 extra secret level MAP33: Betray (accessed by pushing a wall in level 2).
-
 - Win64 support
-
 - OpenAL Soft sound backend primarily developed for Linux but works on Windows as well
-
 - Bink video support through FFmpeg
-
 - Soft shadows using PCF hardware shadow mapping
 
 	The implementation uses sampler2DArrayShadow and PCF which usually
@@ -484,17 +437,10 @@ __________________________________________
 	The implementation is very fast with single taps (400 fps average per
 	scene on a GTX 660 ti OC) however I defaulted it to 16 taps so the shadows look
 	really good which should give you stable 100 fps on todays hardware (2014).
-
 - Changed light interaction shaders to use Half-Lambert lighting like in Half-Life 2 to 
 	make the game less dark. https://developer.valvesoftware.com/wiki/Half_Lambert
 
-
-
-___________________________________________________
-	
-6) CONTROLS
-__________________________________________
-
+## CONTROLS ##
 
 * IMPORTANT * ALL CONTROLS CAN BE EASILY CUSTOMIZED/REMAPPED BY THE USER *
 
@@ -1143,11 +1089,7 @@ Voice Controls:
 
 
 	  
-___________________________________________________
-
-7) FLICKSYNC
-__________________________________________
-
+## FLICKSYNC ##
 
 Flicksync is an experimental mode based on the book Ready Player One by Ernest Cline. 
 In the book, players in a virtual environment participate in and act out the lines of
@@ -1240,11 +1182,7 @@ You will see SCORE: 0 on the menus if you are in Flicksync mode.
 
 
 
-___________________________________________________
-
-8) VR Options
-__________________________________________
-
+## VR Options ##
 
 VR Related game changes can be made from the Settings->VR Options menu.
 
@@ -1970,10 +1908,7 @@ VR Related game changes can be made from the Settings->VR Options menu.
 	  
 	  Manual Profile IPD:	This IPD will be used if Active Profile is set to Manual.
 	  
-___________________________________________
-
-9) CONSOLE VARIABLES AND COMMANDS
-__________________________________________
+## CONSOLE VARIABLES AND COMMANDS ##
 
 Access the console with the ~` key, or you can add these to your config file in:
 %UserProfile%\Saved Games\id Software\DOOM 3 BFG\Fully Possessed\vr_oculus.cfg
@@ -2427,10 +2362,8 @@ vr_cinematics 0 INTEGER - Cinematic type. 0 = Immersive, 1 = Cropped, 2 = Projec
 
 r_useShadowMapping 0 - Use soft shadow mapping instead of hard stencil shadows
 
-___________________________________________________
+## KNOWN ISSUES ##
 
-10) KNOWN ISSUES
-__________________________________________
 
 See https://github.com/KozGit/DOOM-3-BFG-VR/issues
 
@@ -2439,10 +2372,8 @@ Doom 3 wasn't designed to work with shadow maps so:
 - Some lights cause shadow acne with shadow mapping
 - Some shadows might almost disappear due to the shadow filtering
 
-____________________________________________
 
-11) GETTING THE SOURCE CODE
-___________________________________
+## GETTING THE SOURCE CODE ##
 
 This project's GitHub.net Git repository can be checked out through Git with the
 following instruction set: 
@@ -2454,10 +2385,7 @@ If you don't want to use git, you can download the source as a zip file at
 
 Init/Update the submodules in Git to get OpenVR.
 
-___________________________________________________________________
-
-12) COMPILING ON WINDOWS WITH VISUAL C++ 2013, 2015, OR 2017 EXPRESS / COMMUNITY
-__________________________________________________________
+## COMPILING ON WINDOWS WITH VISUAL C++ 2013, 2015, OR 2017 EXPRESS / COMMUNITY ##
 
 1. Download and install the free Express or Community version of Visual C++ 2013, 2015, or 2017.
 
@@ -2496,10 +2424,7 @@ __________________________________________________________
 12. To create the installer, download and install NSIS. Build the release version in visual
     studio. Right click on the installer.nsi file and choose Compile NSIS Script.
 
-__________________________________
-
-13) COMPILING ON LINUX
-_________________________
+## COMPILING ON LINUX ##
 
 LINUX VR:
 
@@ -2568,10 +2493,7 @@ Controller buttons don't work
 	> cd ../build
 	> make
 
-___________________________________________________
-
-14) BUG REPORTS
-__________________________________________
+## BUG REPORTS ##
 
 DOOM-3-BFG VR: Fully Possessed is not perfect, it is not bug free just like all other software.
 To fixing as many problems as possible, we need as many bug reports as possible.
@@ -2603,10 +2525,7 @@ ALSA or configuring the network.
 
 	
 	
-_______________________________
-
-15) LICENSE
-______________________
+## LICENSE ##
 
 
 See COPYING.txt for the GNU GENERAL PUBLIC LICENSE
@@ -2618,10 +2537,7 @@ please request a copy in writing from id Software at id Software LLC, c/o ZeniMa
 Suite 120, Rockville, Maryland 20850 USA.
 
 
-____________________________________________________________________________________
-
-16) CODE LICENSE EXCEPTIONS - The parts that are not covered by the GPL:
-_______________________________________________________________________
+## CODE LICENSE EXCEPTIONS - The parts that are not covered by the GPL: ##
 
 
 EXCLUDED CODE:  The code described below and contained in the Doom 3 BFG Edition GPL Source
